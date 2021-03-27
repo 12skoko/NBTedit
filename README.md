@@ -27,13 +27,13 @@ class NBTedit:
 	def removeblock(self, coor):
 	def setcommandblock(self, coor, command, type, name='@'):
 ```
-##创建NBT文件
+## 创建NBT文件
 刚开始创建NBT文件的时候，需要规定好文件的大小，初始化的时候就已经把所有的方块全部填上了air方块
 
 ```python
 mynbt=NBTeditpy.NBTedit([50,10,10])
 ```
-##方块字典
+## 方块字典
 接下来就是要添加我们需要的方块了
 注意nbt格式添加方块是先需要添加方块种类的
 也就是说nbt格式储存方块是根据坐标和的方块种类，而不是直接方块的名字
@@ -56,6 +56,7 @@ mynbt=NBTeditpy.NBTedit([50,10,10])
 | z=2 | 方块2 | 方块1 | 方块3 |    | 方块3 | 圆石 |
 
 所以我们要先在方块字典里面添加方块
+
 ```python
 def addblockskind(block):
 ```
@@ -63,6 +64,7 @@ def addblockskind(block):
 我们先来看一看方块字典里的方块需要哪些东西
 
 这是air方块：
+
 ```nbt
 TAG_Compound: {1 Entries}
 {
@@ -89,11 +91,14 @@ TAG_Compound: {2 Entries}
 ```python
 block_new = {'Name': 'minecraft:stone', 'tag': 'stone'}
 ```
+
 如果是有'properties'属性的方块则为
+
 ```python
 block_new = {'Name': 'minecraft:command_block', 'tag': 'cb',
 			'Properties': {'conditional': 'flase', 'facing': 'north'}}
 ```
+
 这里的tag是随便取的标识名字，为了是以后能方便的添加方块，只要自己认识随便写什么都是可以的。
 
 注意这里面所有的变量属性都应该是字符串，'condition'的后面是'false'而不是false
@@ -105,7 +110,9 @@ mynbt.addblockskind(block_new)
 ```
 air方块在创建对象时已经添加，tag是'air'
 
-##添加方块
+
+## 添加方块
+
 
 现在就可以在nbt中正式的添加方块了
 
@@ -159,7 +166,8 @@ cb = {'tag': 'cb', 'nbt': {'Command': 'time set 1000',
 setblock(coor, cb)
 ```
 
-##删除方块
+## 删除方块
+
 
 这个没什么好说的，传入坐标数组就能把坐标的方块替换成air方块
 
@@ -167,7 +175,7 @@ setblock(coor, cb)
 def removeblock(coor)
 ```
 
-##保存
+## 保存
 
 ```python
 def saveNBT(path)
