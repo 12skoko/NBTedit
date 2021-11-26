@@ -215,7 +215,7 @@ coor是坐标，command是命令，格式是string，name是命令方块的别�
 比如我要一个始终开启不受制约朝上的循环命令方块，则type=[2,0,4,1]
 
 ```python
-setcommandblock([1,2,3], 'time set day', [1,0,4,1])
+setcommandblock([1,2,3], 'time set day', [2,0,4,1])
 ````
 
 注意，使用setcommandblock函数时是不需要添加方块字典的，这个函数会自动把不在方块字典里的命令方块加入方块字典
